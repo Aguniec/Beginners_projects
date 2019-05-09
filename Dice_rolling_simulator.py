@@ -1,5 +1,5 @@
 import random
-import sys
+
 
 def rolling():
     rolling = True
@@ -12,4 +12,3 @@ def rolling():
 
 rolling()
 
-print(sys.argv)
