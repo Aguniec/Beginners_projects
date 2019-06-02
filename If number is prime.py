@@ -3,18 +3,16 @@ Ask the user for a number and determine whether the number is prime or not
 
 """
 
-number = int(input("Give me a number"))
 
-list = list(range(1, number + 1))
+def is_prime():
+    number = int(input("Give me a number"))
+    numbers_list = list(range(1, number + 1))
+    divisor_list = [i for i in numbers_list if number % i == 0]
+    if len(divisor_list) == 2:
+        message = "Number is prime"
+    else:
+        message = "Number is not prime"
+    return message
 
-divisor_list = []
 
-for i in list:
-    if number % i == 0:
-        divisor_list.append(i)
-
-if divisor_list.__len__() == 2:
-    if 1 in divisor_list and number in divisor_list:
-        print('prime')
-else:
-    print("not prime")
+print(is_prime())

@@ -5,20 +5,23 @@ Ask the user to guess the number, then tell them whether they guessed too low, t
 
 import random
 
-r = random.randint(1, 9)
+
+def guess_the_number():
+
+    r = random.randint(1, 9)
+    user_input = input("Please guess the number:")
+    if user_input == "exit":
+        quit()
+    if int(user_input) == r:
+        message = "Congrats!, Do you want to play again? If no, type 'exit'"
+    elif r > int(user_input):
+        message = "The number is too small, please guess again"
+    elif r < int(user_input):
+        message = "The number is too large, please guess again"
+    else:
+        message = "Inncorect command"
+    return message
+
 
 while True:
-    guess = input("Please guess the number:")
-    if guess.lower().__contains__('exit'):
-        break
-    else:
-        try:
-            x = int(guess)
-            if x == r:
-                print("Congrats!, Do you want to play again?")
-            elif r > x:
-                print("The number is too small, please guess again")
-            elif r < x:
-                print("The number is too large, please guess again")
-        except:
-            print("this is not a number")
+    print(guess_the_number())
